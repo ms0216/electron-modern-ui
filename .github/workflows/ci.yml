@@ -37,5 +37,8 @@ jobs:
     - name: Build the project
       run: npm run build
 
-    - name: Run tests
-      run: xvfb-run --auto-servernum --server-args="-screen 0 1024x768x24" npm start
+    - name: Start xvfb and run tests
+      run: |
+        sudo Xvfb :99 -ac -screen 0 1024x768x24 &
+        export DISPLAY=:99
+        npm start
