@@ -4,7 +4,6 @@ import { Button, Container, Typography, Grid, Tooltip, IconButton, Box, TextFiel
 
 import MailIcon from '@mui/icons-material/Mail';
 import AppBarComponent from './components/AppBarComponent';
-import SnackbarComponent from './components/SnackbarComponent';
 import PaperComponent from './components/PaperComponent';
 import ListComponent from './components/ListComponent';
 import CardComponent from './components/CardComponent';
@@ -23,6 +22,7 @@ import SelectComponent from './components/SelectComponent';
 import SliderComponent from './components/SliderComponent';
 import SwitchComponent from './components/SwitchComponent';
 import ProgressComponent from './components/feedback/Progress';
+import SnackbarComponent from './components/feedback/Snackbar';
 
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -508,6 +508,7 @@ function App() {
   const tf = new TextFieldComponent();
 
   const pr = new ProgressComponent();
+  const sb = new SnackbarComponent();
 
   const autocomplete = ac.createAutocomplete('Country', countries);
 
@@ -540,6 +541,8 @@ function App() {
   const circularProgress = pr.createCircularProgress();
   const linearProgress = pr.createLinearProgress();
 
+  const snackbar = sb.createSnackbar('Snackbar message', 'Close!', snackbarOpen, handleSnackbarClose);
+
   return (
     <Container>
       <AppBarComponent
@@ -563,13 +566,6 @@ function App() {
           <MailIcon />
         </IconButton>
       </Tooltip>
-      
-      <SnackbarComponent
-        snackbarOpen={snackbarOpen}
-        handleSnackbarClose={handleSnackbarClose}
-        message="Snackbar message"
-        actionText="Close!"
-      />
       
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
@@ -641,6 +637,8 @@ function App() {
 
       {circularProgress.element}
       {linearProgress.element}
+
+      {snackbarOpen && snackbar.element}
 
     </Container>
   );
