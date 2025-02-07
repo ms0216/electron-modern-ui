@@ -579,15 +579,7 @@ function App() {
         legend="Radio Group"
         options={radioOptions}
       />
-      
-      <TextField label="Input Field" variant="outlined" fullWidth />
-      
-      <FormControlLabel control={<Checkbox name="checkedA" />} label="Checkbox" />
-      
-      <FormControlLabel control={<Switch name="switchA" />} label="Switch" />
-      
-      <Slider defaultValue={30} aria-labelledby="continuous-slider" />
-      
+       
       <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
       
       <Badge badgeContent={4} color="primary">
