@@ -23,6 +23,10 @@ import SliderComponent from './components/SliderComponent';
 import SwitchComponent from './components/SwitchComponent';
 import ProgressComponent from './components/feedback/Progress';
 import SnackbarComponent from './components/feedback/Snackbar';
+import AvatarComponent from './components/data_display/Avatar';
+import BadgeComponent from './components/data_display/Badge';
+import DividerComponent from './components/data_display/Divider';
+import TypographyComponent from './components/data_display/Typography';
 
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -510,6 +514,11 @@ function App() {
   const pr = new ProgressComponent();
   const sb = new SnackbarComponent();
 
+  const av = new AvatarComponent();
+  const bd = new BadgeComponent();
+  const dv = new DividerComponent();
+  const tp = new TypographyComponent();
+
   const autocomplete = ac.createAutocomplete('Country', countries);
 
   const successAlert = alert.createSuccessAlert('Success', 'This is a success alert.');
@@ -542,6 +551,15 @@ function App() {
   const linearProgress = pr.createLinearProgress();
 
   const snackbar = sb.createSnackbar('Snackbar message', 'Close!', snackbarOpen, handleSnackbarClose);
+
+  const avatar = av.createAvatar('Remy Sharp', '/static/images/avatar/1.jpg');
+
+  const badge = bd.createBadge(4, 'primary', <MailIcon />);
+
+  const divider = dv.createDivider('fullWidth', 'horizontal');
+
+  const typography = tp.createTypography('Typography', 'h2');
+
 
   return (
     <Container>
@@ -581,18 +599,8 @@ function App() {
         legend="Radio Group"
         options={radioOptions}
       />
-       
-      <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-      
-      <Badge badgeContent={4} color="primary">
-        <MailIcon />
-      </Badge>
       
       <Chip label="Chip Filled" />
-      
-      <Divider />
-
-      <TabsComponent tabValue={tabValue} handleTabChange={handleTabChange} tabs={tabs} />
       
       <AccordionComponent title="Accordion 1" content="Content for Accordion 1." />
       <AccordionComponent title="Accordion 2" content="Content for Accordion 2." />
@@ -639,6 +647,14 @@ function App() {
       {linearProgress.element}
 
       {snackbarOpen && snackbar.element}
+
+      {avatar.element}
+
+      {badge.element}
+
+      {divider.element}
+
+      {typography.element}
 
     </Container>
   );
