@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Container, Typography, Grid, Tooltip, IconButton, Box, TextField, Checkbox, FormControlLabel, Switch, Slider, Avatar, Badge, Chip, Divider, CircularProgress, LinearProgress } from '@mui/material';
+import { Button, Container, Typography, Grid, Tooltip, IconButton, Box, TextField, Checkbox, FormControlLabel, Switch, Slider, Avatar, Badge, Chip, Divider, CircularProgress, LinearProgress, ToggleButton } from '@mui/material';
 
 import MailIcon from '@mui/icons-material/Mail';
 import AppBarComponent from './components/AppBarComponent';
@@ -16,11 +16,12 @@ import AlertComponent from './components/AlertComponent';
 import AutocompleteComponent from './components/AutocompleteComponent';
 import ButtonComponent from './components/ButtonComponent';
 import CheckboxComponent from './components/CheckboxComponent';
+import FabComponent from './components/FabComponent';
 import RadioComponent from './components/RadioComponent';
+import RatingComponent from './components/RatingComponent';
 import SelectComponent from './components/SelectComponent';
 import SliderComponent from './components/SliderComponent';
 import SwitchComponent from './components/SwitchComponent';
-
 
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -497,7 +498,9 @@ function App() {
   const alert = new AlertComponent();
   const bt = new ButtonComponent();
   const cb = new CheckboxComponent();
+  const fab = new FabComponent();
   const rd = new RadioComponent
+  const rt = new RatingComponent();
   const sel = new SelectComponent();
   const sl = new SliderComponent();
   const sw = new SwitchComponent();
@@ -514,7 +517,11 @@ function App() {
 
   const checkbox = cb.createCheckbox('Checkbox');
 
+  const fabButton = fab.createFab('Add');
+
   const radio = rd.createRadio('Radio');
+
+  const rating = rt.createRating('Rating');
 
   const select = sel.createSelect('Select', countries);
 
@@ -526,7 +533,6 @@ function App() {
   const textField = tf.createTextField('Text Field');
   const multilineField = tf.createMultilineField('Multiline Field');
   const numberField = tf.createNumberField('Number Field');
-
 
   return (
     <Container>
@@ -622,7 +628,11 @@ function App() {
 
       {checkbox.element}
 
+      {fabButton.element}
+
       {radio.element}
+
+      {rating.element}
 
       {select.element}
 
@@ -634,7 +644,7 @@ function App() {
       {textField.element}
       {multilineField.element}
       {numberField.element}
-      
+
     </Container>
   );
 }
