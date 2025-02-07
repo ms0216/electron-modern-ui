@@ -22,6 +22,7 @@ import RatingComponent from './components/RatingComponent';
 import SelectComponent from './components/SelectComponent';
 import SliderComponent from './components/SliderComponent';
 import SwitchComponent from './components/SwitchComponent';
+import ProgressComponent from './components/feedback/Progress';
 
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -506,6 +507,8 @@ function App() {
   const sw = new SwitchComponent();
   const tf = new TextFieldComponent();
 
+  const pr = new ProgressComponent();
+
   const autocomplete = ac.createAutocomplete('Country', countries);
 
   const successAlert = alert.createSuccessAlert('Success', 'This is a success alert.');
@@ -533,6 +536,9 @@ function App() {
   const textField = tf.createTextField('Text Field');
   const multilineField = tf.createMultilineField('Multiline Field');
   const numberField = tf.createNumberField('Number Field');
+
+  const circularProgress = pr.createCircularProgress();
+  const linearProgress = pr.createLinearProgress();
 
   return (
     <Container>
@@ -589,10 +595,6 @@ function App() {
       <Chip label="Chip Filled" />
       
       <Divider />
-      
-      <CircularProgress />
-
-      <LinearProgress />
 
       <TabsComponent tabValue={tabValue} handleTabChange={handleTabChange} tabs={tabs} />
       
@@ -636,6 +638,9 @@ function App() {
       {textField.element}
       {multilineField.element}
       {numberField.element}
+
+      {circularProgress.element}
+      {linearProgress.element}
 
     </Container>
   );
