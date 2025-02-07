@@ -14,6 +14,13 @@ import TabsComponent from './components/TabsComponent';
 import TextFieldComponent from './components/TextFieldComponent';
 import AlertComponent from './components/AlertComponent';
 import AutocompleteComponent from './components/AutocompleteComponent';
+import ButtonComponent from './components/ButtonComponent';
+import CheckboxComponent from './components/CheckboxComponent';
+import RadioComponent from './components/RadioComponent';
+import SelectComponent from './components/SelectComponent';
+import SliderComponent from './components/SliderComponent';
+import SwitchComponent from './components/SwitchComponent';
+
 
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -486,24 +493,41 @@ function App() {
     { code: 'ZW', label: 'Zimbabwe', phone: '263' },
   ];
 
-  const tf = new TextFieldComponent();
-  const alert = new AlertComponent();
   const ac = new AutocompleteComponent();
+  const alert = new AlertComponent();
+  const bt = new ButtonComponent();
+  const cb = new CheckboxComponent();
+  const rd = new RadioComponent
+  const sel = new SelectComponent();
+  const sl = new SliderComponent();
+  const sw = new SwitchComponent();
+  const tf = new TextFieldComponent();
 
-  const passwordField = tf.createPasswordField('Password');
-  const textField = tf.createTextField('Text Field');
-  const multilineField = tf.createMultilineField('Multiline Field');
-  const numberField = tf.createNumberField('Number Field');
+  const autocomplete = ac.createAutocomplete('Country', countries);
 
   const successAlert = alert.createSuccessAlert('Success', 'This is a success alert.');
   const errorAlert = alert.createErrorAlert('Error', 'This is an error alert.');
   const warningAlert = alert.createWarningAlert('Warning', 'This is a warning alert.');
   const infoAlert = alert.createInfoAlert('Info', 'This is an info alert.');
 
-  const autocomplete = ac.createAutocomplete('Autocomplete', ['Option 1', 'Option 2', 'Option 3']);
-  const multipleAutocomplete = ac.createMultipleAutocomplete('Multiple Autocomplete', ['Option 1', 'Option 2', 'Option 3']);
-  const flagAutocomplete = ac.createFlagAutocomplete('Flag Autocomplete', countries);
-  
+  const button = bt.createButton('Button', 'contained', 'primary');
+
+  const checkbox = cb.createCheckbox('Checkbox');
+
+  const radio = rd.createRadio('Radio');
+
+  const select = sel.createSelect('Select', countries);
+
+  const slider = sl.createSlider('Slider');
+
+  const switc = sw.createSwitch('Switch');
+
+  const passwordField = tf.createPasswordField('Password');
+  const textField = tf.createTextField('Text Field');
+  const multilineField = tf.createMultilineField('Multiline Field');
+  const numberField = tf.createNumberField('Number Field');
+
+
   return (
     <Container>
       <AppBarComponent
@@ -587,21 +611,30 @@ function App() {
         content="Card Content"
       />
 
-      {passwordField.element}
-      {textField.element}
-      {multilineField.element}
-      {numberField.element}
-
       {successAlert.element}
       {errorAlert.element}
       {warningAlert.element}
       {infoAlert.element}
 
       {autocomplete.element}
-      {multipleAutocomplete.element}
-      {flagAutocomplete.element}
 
+      {button.element}
 
+      {checkbox.element}
+
+      {radio.element}
+
+      {select.element}
+
+      {slider.element}
+
+      {switc.element}
+      
+      {passwordField.element}
+      {textField.element}
+      {multilineField.element}
+      {numberField.element}
+      
     </Container>
   );
 }
