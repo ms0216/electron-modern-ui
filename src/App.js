@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Button, Container, Typography, Grid, Tooltip, IconButton, Box, TextField, Checkbox, FormControlLabel, Switch, Slider, Avatar, Badge, Chip, Divider, CircularProgress, LinearProgress, ToggleButton } from '@mui/material';
 
 import MailIcon from '@mui/icons-material/Mail';
-import RadioGroupComponent from './components/RadioGroupComponent';
 import TabsComponent from './components/TabsComponent';
 import TextFieldComponent from './components/TextFieldComponent';
 import AlertComponent from './components/AlertComponent';
@@ -11,7 +10,7 @@ import AutocompleteComponent from './components/AutocompleteComponent';
 import ButtonComponent from './components/ButtonComponent';
 import CheckboxComponent from './components/CheckboxComponent';
 import FabComponent from './components/FabComponent';
-import RadioComponent from './components/RadioComponent';
+import RadioGroupComponent from './components/RadioGroupComponent';
 import RatingComponent from './components/RatingComponent';
 import SelectComponent from './components/SelectComponent';
 import SliderComponent from './components/SliderComponent';
@@ -504,7 +503,7 @@ function App() {
   const bt = new ButtonComponent();
   const cb = new CheckboxComponent();
   const fab = new FabComponent();
-  const rd = new RadioComponent
+  const rg = new RadioGroupComponent();
   const rt = new RatingComponent();
   const sel = new SelectComponent();
   const sl = new SliderComponent();
@@ -538,7 +537,7 @@ function App() {
 
   const fabButton = fab.createFab('Add');
 
-  const radio = rd.createRadio('Radio');
+  const radioGroup = rg.createRadioGroup('Radio Group', radioOptions);
 
   const rating = rt.createRating('Rating');
 
@@ -619,12 +618,9 @@ function App() {
           {paper.element}
         </Grid>
       </Grid>
-      
-      <RadioGroupComponent
-        legend="Radio Group"
-        options={radioOptions}
-      />
-      
+
+      {radioGroup.element}
+
       <Chip label="Chip Filled" />
       
       {list.element}
@@ -643,8 +639,6 @@ function App() {
       {checkbox.element}
 
       {fabButton.element}
-
-      {radio.element}
 
       {rating.element}
 
