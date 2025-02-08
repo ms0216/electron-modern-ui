@@ -3,15 +3,16 @@ import { Button } from "@mui/material";
 import BaseComponent from "../BaseComponent";
 
 class ButtonComponent extends BaseComponent {
-  createButton(label, variant = "contained", color = "primary") {
+  createButton(label, onClick, props = {variant: "contained", color: "primary"}) {
     const id = this.generateId();
     return {
       id,
       element: (
         <Button
           id={id}
-          variant={variant}
-          color={color}
+          variant={props.variant}
+          color={props.color}
+          onClick={onClick}
         >
           {label}
         </Button>

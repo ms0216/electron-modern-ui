@@ -532,7 +532,8 @@ function App() {
   const warningAlert = alert.createWarningAlert('Warning', 'This is a warning alert.');
   const infoAlert = alert.createInfoAlert('Info', 'This is an info alert.');
 
-  const button = bt.createButton('Button', 'contained', 'primary');
+  const button = bt.createButton('Button', null, { variant: 'contained', color: 'primary' });
+  const button_snackbar = bt.createButton('Show Snackbar', handleSnackbarOpen, { variant: 'contained', color: 'primary' });
 
   const checkbox = cb.createCheckbox('Checkbox');
 
@@ -604,9 +605,7 @@ function App() {
       
       {title.element}
       
-      <Button variant="contained" color="primary" onClick={handleSnackbarOpen}>
-        Button: Show Snackbar
-      </Button>
+      {button_snackbar.element}
       
       <Tooltip title="Tooltip title">
         <IconButton aria-label="delete">
