@@ -8,7 +8,7 @@ import PaperComponent from './components/PaperComponent';
 import ListComponent from './components/ListComponent';
 import CardComponent from './components/CardComponent';
 import RadioGroupComponent from './components/RadioGroupComponent';
-import AccordionComponent from './components/AccordionComponent';
+import AccordionComponent2 from './components/AccordionComponent';
 import TabsComponent from './components/TabsComponent';
 import TextFieldComponent from './components/TextFieldComponent';
 import AlertComponent from './components/AlertComponent';
@@ -27,6 +27,7 @@ import AvatarComponent from './components/data_display/Avatar';
 import BadgeComponent from './components/data_display/Badge';
 import DividerComponent from './components/data_display/Divider';
 import TypographyComponent from './components/data_display/Typography';
+import AccordionComponent from './components/surfaces/Accordion';
 
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -519,6 +520,8 @@ function App() {
   const dv = new DividerComponent();
   const tp = new TypographyComponent();
 
+  const acc = new AccordionComponent();
+
   const autocomplete = ac.createAutocomplete('Country', countries);
 
   const successAlert = alert.createSuccessAlert('Success', 'This is a success alert.');
@@ -561,7 +564,16 @@ function App() {
   const title = tp.createTypography('Electron + React + Material UI', {variant: 'h2', Component: 'h1'});
   const typography = tp.createTypography('Typography', {variant: 'h2'});
 
+  const accordion1 = acc.createAccordion(
+    tp.createTypography('Accordion 1').element,
+    tp.createTypography('Content for Accordion 1.').element
+  );
 
+  const accordion2 = acc.createAccordion(
+    tp.createTypography('Accordion 2').element,
+    tp.createTypography('Content for Accordion 2.').element
+  );
+  
   return (
     <Container>
       <AppBarComponent
@@ -601,9 +613,6 @@ function App() {
       
       <Chip label="Chip Filled" />
       
-      <AccordionComponent title="Accordion 1" content="Content for Accordion 1." />
-      <AccordionComponent title="Accordion 2" content="Content for Accordion 2." />
-
       <ListComponent
         items={listItems}
       />
@@ -654,6 +663,9 @@ function App() {
       {divider.element}
 
       {typography.element}
+    
+      {accordion1.element}
+      {accordion2.element}
 
     </Container>
   );
