@@ -20,6 +20,7 @@ import ProgressComponent from './components/feedback/Progress';
 import SnackbarComponent from './components/feedback/Snackbar';
 import AvatarComponent from './components/data_display/Avatar';
 import BadgeComponent from './components/data_display/Badge';
+import ChipComponent from './components/data_display/Chip';
 import DividerComponent from './components/data_display/Divider';
 import ListComponent from './components/data_display/List';
 import TypographyComponent from './components/data_display/Typography';
@@ -516,6 +517,7 @@ function App() {
 
   const av = new AvatarComponent();
   const bd = new BadgeComponent();
+  const ch = new ChipComponent();
   const dv = new DividerComponent();
   const ls = new ListComponent();
   const tp = new TypographyComponent();
@@ -563,6 +565,8 @@ function App() {
 
   const badge = bd.createBadge(4, 'primary', <MailIcon />);
 
+  const chip = ch.createChip('Chip Filled');
+
   const divider = dv.createDivider('fullWidth', 'horizontal');
 
   const list = ls.createList(listItems);
@@ -606,7 +610,7 @@ function App() {
       {title.element}
       
       {button_snackbar.element}
-      
+
       <Tooltip title="Tooltip title">
         <IconButton aria-label="delete">
           <MailIcon />
@@ -621,7 +625,7 @@ function App() {
 
       {radioGroup.element}
 
-      <Chip label="Chip Filled" />
+      {chip.element}
       
       {list.element}
 
