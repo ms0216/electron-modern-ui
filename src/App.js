@@ -5,7 +5,6 @@ import { Button, Container, Typography, Grid, Tooltip, IconButton, Box, TextFiel
 import MailIcon from '@mui/icons-material/Mail';
 import PaperComponent from './components/PaperComponent';
 import ListComponent from './components/ListComponent';
-import CardComponent from './components/CardComponent';
 import RadioGroupComponent from './components/RadioGroupComponent';
 import TabsComponent from './components/TabsComponent';
 import TextFieldComponent from './components/TextFieldComponent';
@@ -27,6 +26,7 @@ import DividerComponent from './components/data_display/Divider';
 import TypographyComponent from './components/data_display/Typography';
 import AccordionComponent from './components/surfaces/Accordion';
 import AppBarComponent from './components/surfaces/AppBar';
+import CardComponent from './components/surfaces/Card';
 
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -521,6 +521,7 @@ function App() {
 
   const acc = new AccordionComponent();
   const app = new AppBarComponent();
+  const ca = new CardComponent();
 
   const autocomplete = ac.createAutocomplete('Country', countries);
 
@@ -581,7 +582,13 @@ function App() {
     handleMenu,
     handleClose
   );
-  
+
+  const card = ca.createCard(
+    tp.createTypography('Card Title', {variant: 'h5', component: 'div'}).element,
+    tp.createTypography('Card Subtitle', {color: 'textSecondary'}).element,
+    tp.createTypography('Card Content', {variant: 'body2'}).element
+  );
+
   return (
     <Container>
       {appbar.element}
@@ -619,11 +626,7 @@ function App() {
         items={listItems}
       />
 
-      <CardComponent
-        title="Card Title"
-        subtitle="Card Subtitle"
-        content="Card Content"
-      />
+      {card.element}
 
       {successAlert.element}
       {errorAlert.element}
