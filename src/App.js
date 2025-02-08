@@ -30,6 +30,8 @@ import AppBarComponent from './components/surfaces/AppBar';
 import CardComponent from './components/surfaces/Card';
 import PaperComponent from './components/surfaces/Paper';
 
+import GridComponent from './components/layout/gridv2';
+
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
@@ -529,6 +531,8 @@ function App() {
   const ca = new CardComponent();
   const pp = new PaperComponent();
 
+  const gr = new GridComponent();
+
   const autocomplete = ac.createAutocomplete('Country', countries);
 
   const successAlert = alert.createSuccessAlert('Success', 'This is a success alert.');
@@ -612,6 +616,12 @@ function App() {
     tp.createTypography('Paper Content', {variant: 'body2'}).element
   );
 
+  const grid = gr.createGrid(
+    <Grid item xs={12} sm={6}>
+      {paper.element}
+    </Grid>
+  );
+
   return (
     <Container>
       {appbar.element}
@@ -622,11 +632,7 @@ function App() {
 
       {tooltip.element}
 
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          {paper.element}
-        </Grid>
-      </Grid>
+      {grid.element}
 
       {radioGroup.element}
 
