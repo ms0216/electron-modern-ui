@@ -34,6 +34,7 @@ import PaperComponent from './components/surfaces/Paper';
 
 import GridComponent from './components/layout/gridv2';
 
+
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
@@ -77,6 +78,10 @@ function App() {
 
   const elements = [];
 
+  const addElement = (element) => {
+    elements.push(element);
+  };
+
   /* input components */
   const autocomplete = new AutocompleteComponent();
   const alert = new AlertComponent();
@@ -117,7 +122,7 @@ function App() {
     typography.create('Accordion 1').element,
     typography.create('Content for Accordion 1.').element
   );
-  elements.push(acc1.element);
+  addElement(acc1.element);
 
   const ab1 = appbar.create(
     typography.create('App Bar Component', {variant: 'h6', style: { flexGrow: 1 }}).element,
@@ -126,7 +131,7 @@ function App() {
     handleMenu,
     handleClose
   );
-  elements.push(ab1.element);
+  addElement(ab1.element);
 
   const tp1 = typography.create('Card Title', {variant: 'h5', component: 'div'});
   const tp2 = typography.create('Card Subtitle', {color: 'textSecondary'});
@@ -136,101 +141,101 @@ function App() {
     tp2.element,
     tp3.element
   );
-  elements.push(cd1.element);
+  addElement(cd1.element);
 
   const pp1 = paper.create(
     typography.create('Paper Title', {variant: 'h5', component: 'div'}).element,
     typography.create('Paper Content', {variant: 'body2'}).element
   );
-  elements.push(pp1.element);
+  addElement(pp1.element);
 
   /* data display components */
   const av1 = avatar.create('Remy Sharp', '/static/images/avatar/1.jpg');
-  elements.push(av1.element);
+  addElement(av1.element);
 
   const bd1 = badge.create(4, 'primary', <MailIcon />);
-  elements.push(bd1.element);
+  addElement(bd1.element);
 
   const ch1 = chip.create('Chip Filled');
-  elements.push(ch1.element);
+  addElement(ch1.element);
 
   const dv1 = divider.create('fullWidth', 'horizontal');
-  elements.push(dv1.element);
+  addElement(dv1.element);
 
   const ls1 = list.create(listItems);
-  elements.push(ls1.element);
+  addElement(ls1.element);
 
   const tt1 = tooltip.create('Tooltip title',
     <IconButton aria-label="delete">
       <MailIcon />
     </IconButton>
   );
-  elements.push(tt1.element);
+  addElement(tt1.element);
 
   const tp9 = typography.create('Typography', {variant: 'h2'});
-  elements.push(tp9.element);
+  addElement(tp9.element);
 
   /* inputs components */
-  const al1 = alert.createSuccessAlert('Success', 'This is a success alert.');  /////////////////////////////
-  elements.push(al1.element);
+  const al1 = alert.createSuccessAlert('Success', 'This is a success alert.'); ///////////////////
+  addElement(al1.element);
 
   const al2 = alert.createErrorAlert('Error', 'This is an error alert.');
-  elements.push(al2.element);
+  addElement(al2.element);
 
   const al3 = alert.createWarningAlert('Warning', 'This is a warning alert.');
-  elements.push(al3.element);
+  addElement(al3.element);
 
   const al4 = alert.createInfoAlert('Info', 'This is an info alert.');
-  elements.push(al4.element);
+  addElement(al4.element);
 
   const ac1 = autocomplete.create('Country', countries);
-  elements.push(ac1.element);
+  addElement(ac1.element);
 
   const bt1 = button.create('Show Snackbar', handleSnackbarOpen, { variant: 'contained', color: 'primary' });
-  elements.push(bt1.element);
+  addElement(bt1.element);
 
   const cb1 = checkbox.create('Checkbox');
-  elements.push(cb1.element);
+  addElement(cb1.element);
 
   const fb1 = fab.create('Add');
-  elements.push(fb1.element);
+  addElement(fb1.element);
 
   const rg1 = radiogroup.create('Radio Group', radioOptions);
-  elements.push(rg1.element);
+  addElement(rg1.element);
 
   const rt1 = rating.create('Rating');
-  elements.push(rt1.element);
+  addElement(rt1.element);
 
   const sl1 = select.create('Select', countries);
-  elements.push(sl1.element);
+  addElement(sl1.element);
 
   const sl2 = slider.create('Slider');
-  elements.push(sl2.element);
+  addElement(sl2.element);
 
   const sw1 = switc.create('Switch');
-  elements.push(sw1.element);
+  addElement(sw1.element);
 
   const tf1 = textField.createPasswordField('Password'); ///////////////////
-  elements.push(tf1.element);
+  addElement(tf1.element);
 
   const tf2 = textField.createTextField('Text Field');
-  elements.push(tf2.element);
+  addElement(tf2.element);
 
   const tf3 = textField.createMultilineField('Multiline Field');
-  elements.push(tf3.element);
+  addElement(tf3.element);
 
   const tf4 = textField.createNumberField('Number Field');
-  elements.push(tf4.element);
+  addElement(tf4.element);
 
   /* feedback components */
-  const pr1 = progress.createCircularProgress(); /////////////////////////
-  elements.push(pr1.element);
+  const pr1 = progress.createCircularProgress(); ///////////////////
+  addElement(pr1.element);
 
   const pr2 = progress.createLinearProgress();
-  elements.push(pr2.element);
+  addElement(pr2.element);
 
   const sb1 = snackbar.create('Snackbar message', 'Close!', snackbarOpen, handleSnackbarClose);
-  elements.push(sb1.element);
+  addElement(sb1.element);
 
   /* layout components */
   const gr1 = grid.create(
@@ -238,7 +243,7 @@ function App() {
       {pp1.element}
     </Grid>
   );
-  elements.push(gr1.element);
+  addElement(gr1.element);
   
   return (
     <Container>
