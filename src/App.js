@@ -29,6 +29,7 @@ import DividerComponent from './components/data_display/Divider';
 import ListComponent from './components/data_display/List';
 import TooltipComponent from './components/data_display/Tooltip';
 import TypographyComponent from './components/data_display/Typography';
+import TableComponent from './components/data_display/Table';
 
 /* surfaces components */
 import AccordionComponent from './components/surfaces/Accordion';
@@ -112,6 +113,7 @@ function App() {
   const list = new ListComponent();
   const tooltip = new TooltipComponent();
   const typography = new TypographyComponent();
+  const table = new TableComponent();
 
   /* surfaces components */
   const accordion = new AccordionComponent();
@@ -179,6 +181,15 @@ function App() {
 
   const tp9 = typography.create('Typography', {variant: 'h2'});
   addElement(tp9.element);
+
+  const tableHeaders = ["Name", "Age", "Country"];
+  const tableRows = [
+    ["John Doe", 25, "USA"],
+    ["Jane Smith", 30, "UK"],
+    ["Jack Johnson", 28, "Canada"]
+  ];
+  const tb1 = table.create(tableHeaders, tableRows);
+  addElement(tb1.element);
 
   /* inputs components */
   const al1 = alert.createSuccessAlert('Success', 'This is a success alert.'); ///////////////////
