@@ -1,6 +1,7 @@
 {
   "scripts": {
     "start": "electron .",
+    "test": "webpack && electron .",
     "build": "webpack"
   },
   "name": "electron-ui-experiment",
