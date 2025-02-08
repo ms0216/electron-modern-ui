@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Button, Container, Typography, Grid, Tooltip, IconButton, Box, TextField, Checkbox, FormControlLabel, Switch, Slider, Avatar, Badge, Chip, Divider, CircularProgress, LinearProgress, ToggleButton } from '@mui/material';
 
 import MailIcon from '@mui/icons-material/Mail';
-import TabsComponent from './components/TabsComponent';
 import TextFieldComponent from './components/TextFieldComponent';
 import AlertComponent from './components/AlertComponent';
 import AutocompleteComponent from './components/AutocompleteComponent';
