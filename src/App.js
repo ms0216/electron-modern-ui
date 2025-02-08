@@ -23,6 +23,7 @@ import BadgeComponent from './components/data_display/Badge';
 import ChipComponent from './components/data_display/Chip';
 import DividerComponent from './components/data_display/Divider';
 import ListComponent from './components/data_display/List';
+import TooltipComponent from './components/data_display/Tooltip';
 import TypographyComponent from './components/data_display/Typography';
 import AccordionComponent from './components/surfaces/Accordion';
 import AppBarComponent from './components/surfaces/AppBar';
@@ -520,6 +521,7 @@ function App() {
   const ch = new ChipComponent();
   const dv = new DividerComponent();
   const ls = new ListComponent();
+  const tt = new TooltipComponent();
   const tp = new TypographyComponent();
 
   const acc = new AccordionComponent();
@@ -572,6 +574,13 @@ function App() {
   const list = ls.createList(listItems);
 
   const title = tp.createTypography('Electron + React + Material UI', {variant: 'h2', Component: 'h1'});
+  
+  const tooltip = tt.createTooltip('Tooltip title',
+    <IconButton aria-label="delete">
+      <MailIcon />
+    </IconButton>
+  );
+  
   const typography = tp.createTypography('Typography', {variant: 'h2'});
 
   const accordion1 = acc.createAccordion(
@@ -611,12 +620,8 @@ function App() {
       
       {button_snackbar.element}
 
-      <Tooltip title="Tooltip title">
-        <IconButton aria-label="delete">
-          <MailIcon />
-        </IconButton>
-      </Tooltip>
-      
+      {tooltip.element}
+
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           {paper.element}
