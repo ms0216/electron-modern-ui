@@ -3,17 +3,15 @@ import { Checkbox, FormControlLabel } from "@mui/material";
 import BaseComponent from "../BaseComponent";
 
 class CheckboxComponent extends BaseComponent {
-  createCheckbox(label) {
+  create(label) {
     const id = this.generateId();
-    return {
-      id,
-      element: (
-        <FormControlLabel
-          control={<Checkbox id={id} />}
-          label={label}
-        />
-      )
-    };
+    const element = (
+      <FormControlLabel
+        control={<Checkbox id={id} />}
+        label={label}
+      />
+    );
+    return { id, element };
   }
 }
 

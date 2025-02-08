@@ -4,21 +4,20 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import BaseComponent from "../BaseComponent";
 
 class AccordionComponent extends BaseComponent {
-  createAccordion(title, content) {
+  create(title, content) {
     const id = this.generateId();
-    return {
-      id,
-      element: (
-        <Accordion id={id}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            {title}
-          </AccordionSummary>
-          <AccordionDetails>
-            {content}
-          </AccordionDetails>
-        </Accordion>
-      )
-    };
+    const element = (
+      <Accordion id={id}>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          {title}
+        </AccordionSummary>
+        <AccordionDetails>
+          {content}
+        </AccordionDetails>
+      </Accordion>
+    );
+
+    return { id, element };
   }
 }
 

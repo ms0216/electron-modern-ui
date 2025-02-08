@@ -3,26 +3,24 @@ import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mu
 import BaseComponent from '../BaseComponent';
 
 class RadioGroupComponent extends BaseComponent {
-  createRadioGroup(label, items = []) {
+  create(label, items = []) {
     const id = this.generateId();
-    return {
-      id,
-      element: (
-        <FormControl id={id} component="fieldset">
-          <FormLabel component="legend">{label}</FormLabel>
-          <RadioGroup>
-            {items.map((item, index) => (
-              <FormControlLabel
-                key={index}
-                value={item.value}
-                control={<Radio />}
-                label={item.label}
-              />
-            ))}
-          </RadioGroup>
-        </FormControl>
-      )
-    };
+    const element = (
+      <FormControl id={id} component="fieldset">
+        <FormLabel component="legend">{label}</FormLabel>
+        <RadioGroup>
+          {items.map((item, index) => (
+            <FormControlLabel
+              key={index}
+              value={item.value}
+              control={<Radio />}
+              label={item.label}
+            />
+          ))}
+        </RadioGroup>
+      </FormControl>
+    );
+    return { id, element };
   }
 }
 

@@ -3,17 +3,16 @@ import { Paper, Typography } from "@mui/material";
 import BaseComponent from "../BaseComponent";
 
 class PaperComponent extends BaseComponent {
-  createPaper(title, content) {
+  create(title, content) {
     const id = this.generateId();
-    return {
-      id,
-      element: (
-        <Paper id={id} elevation={3}>
-            {title}
-            {content}
-        </Paper>
-      )
-    };
+    const element = (
+      <Paper id={id} elevation={3}>
+        {title}
+        {content}
+      </Paper>
+    );
+
+    return { id, element };
   }
 }
 

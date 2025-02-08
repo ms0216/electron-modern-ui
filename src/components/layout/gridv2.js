@@ -3,11 +3,9 @@ import { Grid } from '@mui/material';
 import BaseComponent from '../BaseComponent';
 
 class GridComponent extends BaseComponent {
-    createGrid(children, props = {container: true, spacing: 2}) {
+    create(children, props = {container: true, spacing: 2}) {
         const id = this.generateId();
-        return {
-        id,
-        element: (
+        const element = (
             <Grid
             id={id}
             container={props.container}
@@ -15,8 +13,9 @@ class GridComponent extends BaseComponent {
             >
                 {children}
             </Grid>
-        )
-        };
+        );
+
+        return { id, element };
     }
 }
 

@@ -3,17 +3,16 @@ import { Switch, FormControlLabel } from "@mui/material";
 import BaseComponent from "../BaseComponent";
 
 class SwitchComponent extends BaseComponent {
-  createSwitch(label) {
+  create(label) {
     const id = this.generateId();
-    return {
-      id,
-      element: (
-        <FormControlLabel
-          control={<Switch id={id} />}
-          label={label}
-        />
-      )
-    };
+    const element = (
+      <FormControlLabel
+        control={<Switch id={id} />}
+        label={label}
+      />
+    );
+
+    return { id, element };
   }
 }
 

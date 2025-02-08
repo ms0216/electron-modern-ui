@@ -3,20 +3,19 @@ import { List, ListItem, ListItemText } from "@mui/material";
 import BaseComponent from "../BaseComponent";
 
 class ListComponent extends BaseComponent {
-  createList(items = []) {
+  create(items = []) {
     const id = this.generateId();
-    return {
-      id,
-      element: (
-        <List id={id}>
-          {items.map((item, index) => (
-            <ListItem key={index}>
-              <ListItemText primary={item} />
-            </ListItem>
-          ))}
-        </List>
-      )
-    };
+    const element = (
+      <List id={id}>
+        {items.map((item, index) => (
+          <ListItem key={index}>
+            <ListItemText primary={item} />
+          </ListItem>
+        ))}
+      </List>
+    );
+
+    return { id, element };
   }
 }
 

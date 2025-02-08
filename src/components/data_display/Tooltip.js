@@ -3,20 +3,16 @@ import { Tooltip } from '@mui/material';
 import BaseComponent from '../BaseComponent';
 
 class TooltipComponent extends BaseComponent {
-    createTooltip(title, content) {
-        const id = this.generateId();
-        return {
-        id,
-        element: (
-            <Tooltip
-            id={id}
-            title={title}
-            >
-                {content}
-            </Tooltip>
-        )
-        };
-    }
+  create(title, content) {
+    const id = this.generateId();
+    const element = (
+      <Tooltip id={id} title={title}>
+        {content}
+      </Tooltip>
+    );
+
+    return { id, element };
+  }
 }
 
 export default TooltipComponent;

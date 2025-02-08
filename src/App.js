@@ -75,189 +75,176 @@ function App() {
     { label: 'Item Three', content: 'Item Three' },
   ];
 
-  const ac = new AutocompleteComponent();
+  const elements = [];
+
+  /* input components */
+  const autocomplete = new AutocompleteComponent();
   const alert = new AlertComponent();
-  const bt = new ButtonComponent();
-  const cb = new CheckboxComponent();
+  const button = new ButtonComponent();
+  const checkbox = new CheckboxComponent();
   const fab = new FabComponent();
-  const rg = new RadioGroupComponent();
-  const rt = new RatingComponent();
-  const sel = new SelectComponent();
-  const sl = new SliderComponent();
-  const sw = new SwitchComponent();
-  const tf = new TextFieldComponent();
+  const radiogroup = new RadioGroupComponent();
+  const rating = new RatingComponent();
+  const select = new SelectComponent();
+  const slider = new SliderComponent();
+  const switc = new SwitchComponent();
+  const textField = new TextFieldComponent();
 
-  const pr = new ProgressComponent();
-  const sb = new SnackbarComponent();
+  /* feedback components */
+  const progress = new ProgressComponent();
+  const snackbar = new SnackbarComponent();
 
-  const av = new AvatarComponent();
-  const bd = new BadgeComponent();
-  const ch = new ChipComponent();
-  const dv = new DividerComponent();
-  const ls = new ListComponent();
-  const tt = new TooltipComponent();
-  const tp = new TypographyComponent();
+  /* data display components */
+  const avatar = new AvatarComponent();
+  const badge = new BadgeComponent();
+  const chip = new ChipComponent();
+  const divider = new DividerComponent();
+  const list = new ListComponent();
+  const tooltip = new TooltipComponent();
+  const typography = new TypographyComponent();
 
-  const acc = new AccordionComponent();
-  const app = new AppBarComponent();
-  const ca = new CardComponent();
-  const pp = new PaperComponent();
+  /* surfaces components */
+  const accordion = new AccordionComponent();
+  const appbar = new AppBarComponent();
+  const card = new CardComponent();
+  const paper = new PaperComponent();
 
-  const gr = new GridComponent();
+  /* layout components */
+  const grid = new GridComponent();
 
-  const autocomplete = ac.createAutocomplete('Country', countries);
-
-  const successAlert = alert.createSuccessAlert('Success', 'This is a success alert.');
-  const errorAlert = alert.createErrorAlert('Error', 'This is an error alert.');
-  const warningAlert = alert.createWarningAlert('Warning', 'This is a warning alert.');
-  const infoAlert = alert.createInfoAlert('Info', 'This is an info alert.');
-
-  const button = bt.createButton('Button', null, { variant: 'contained', color: 'primary' });
-  const button_snackbar = bt.createButton('Show Snackbar', handleSnackbarOpen, { variant: 'contained', color: 'primary' });
-
-  const checkbox = cb.createCheckbox('Checkbox');
-
-  const fabButton = fab.createFab('Add');
-
-  const radioGroup = rg.createRadioGroup('Radio Group', radioOptions);
-
-  const rating = rt.createRating('Rating');
-
-  const select = sel.createSelect('Select', countries);
-
-  const slider = sl.createSlider('Slider');
-
-  const switc = sw.createSwitch('Switch');
-
-  const passwordField = tf.createPasswordField('Password');
-  const textField = tf.createTextField('Text Field');
-  const multilineField = tf.createMultilineField('Multiline Field');
-  const numberField = tf.createNumberField('Number Field');
-
-  const circularProgress = pr.createCircularProgress();
-  const linearProgress = pr.createLinearProgress();
-
-  const snackbar = sb.createSnackbar('Snackbar message', 'Close!', snackbarOpen, handleSnackbarClose);
-
-  const avatar = av.createAvatar('Remy Sharp', '/static/images/avatar/1.jpg');
-
-  const badge = bd.createBadge(4, 'primary', <MailIcon />);
-
-  const chip = ch.createChip('Chip Filled');
-
-  const divider = dv.createDivider('fullWidth', 'horizontal');
-
-  const list = ls.createList(listItems);
-
-  const title = tp.createTypography('Electron + React + Material UI', {variant: 'h2', Component: 'h1'});
-  
-  const tooltip = tt.createTooltip('Tooltip title',
-    <IconButton aria-label="delete">
-      <MailIcon />
-    </IconButton>
+  /* surface components */
+  const acc1 = accordion.create(
+    typography.create('Accordion 1').element,
+    typography.create('Content for Accordion 1.').element
   );
-  
-  const typography = tp.createTypography('Typography', {variant: 'h2'});
+  elements.push(acc1.element);
 
-  const accordion1 = acc.createAccordion(
-    tp.createTypography('Accordion 1').element,
-    tp.createTypography('Content for Accordion 1.').element
-  );
-
-  const accordion2 = acc.createAccordion(
-    tp.createTypography('Accordion 2').element,
-    tp.createTypography('Content for Accordion 2.').element
-  );
-
-  const appbar = app.createAppBar(
-    tp.createTypography('App Bar Component', {variant: 'h6', style: { flexGrow: 1 }}).element,
+  const ab1 = appbar.create(
+    typography.create('App Bar Component', {variant: 'h6', style: { flexGrow: 1 }}).element,
     menuItems,
     anchorEl,
     handleMenu,
     handleClose
   );
+  elements.push(ab1.element);
 
-  const card = ca.createCard(
-    tp.createTypography('Card Title', {variant: 'h5', component: 'div'}).element,
-    tp.createTypography('Card Subtitle', {color: 'textSecondary'}).element,
-    tp.createTypography('Card Content', {variant: 'body2'}).element
+  const tp1 = typography.create('Card Title', {variant: 'h5', component: 'div'});
+  const tp2 = typography.create('Card Subtitle', {color: 'textSecondary'});
+  const tp3 = typography.create('Card Content', {variant: 'body2'});
+  const cd1 = card.create(
+    tp1.element,
+    tp2.element,
+    tp3.element
   );
+  elements.push(cd1.element);
 
-  const paper = pp.createPaper(
-    tp.createTypography('Paper Title', {variant: 'h5', component: 'div'}).element,
-    tp.createTypography('Paper Content', {variant: 'body2'}).element
+  const pp1 = paper.create(
+    typography.create('Paper Title', {variant: 'h5', component: 'div'}).element,
+    typography.create('Paper Content', {variant: 'body2'}).element
   );
+  elements.push(pp1.element);
 
-  const grid = gr.createGrid(
+  /* data display components */
+  const av1 = avatar.create('Remy Sharp', '/static/images/avatar/1.jpg');
+  elements.push(av1.element);
+
+  const bd1 = badge.create(4, 'primary', <MailIcon />);
+  elements.push(bd1.element);
+
+  const ch1 = chip.create('Chip Filled');
+  elements.push(ch1.element);
+
+  const dv1 = divider.create('fullWidth', 'horizontal');
+  elements.push(dv1.element);
+
+  const ls1 = list.create(listItems);
+  elements.push(ls1.element);
+
+  const tt1 = tooltip.create('Tooltip title',
+    <IconButton aria-label="delete">
+      <MailIcon />
+    </IconButton>
+  );
+  elements.push(tt1.element);
+
+  const tp9 = typography.create('Typography', {variant: 'h2'});
+  elements.push(tp9.element);
+
+  /* inputs components */
+  const al1 = alert.createSuccessAlert('Success', 'This is a success alert.');  /////////////////////////////
+  elements.push(al1.element);
+
+  const al2 = alert.createErrorAlert('Error', 'This is an error alert.');
+  elements.push(al2.element);
+
+  const al3 = alert.createWarningAlert('Warning', 'This is a warning alert.');
+  elements.push(al3.element);
+
+  const al4 = alert.createInfoAlert('Info', 'This is an info alert.');
+  elements.push(al4.element);
+
+  const ac1 = autocomplete.create('Country', countries);
+  elements.push(ac1.element);
+
+  const bt1 = button.create('Show Snackbar', handleSnackbarOpen, { variant: 'contained', color: 'primary' });
+  elements.push(bt1.element);
+
+  const cb1 = checkbox.create('Checkbox');
+  elements.push(cb1.element);
+
+  const fb1 = fab.create('Add');
+  elements.push(fb1.element);
+
+  const rg1 = radiogroup.create('Radio Group', radioOptions);
+  elements.push(rg1.element);
+
+  const rt1 = rating.create('Rating');
+  elements.push(rt1.element);
+
+  const sl1 = select.create('Select', countries);
+  elements.push(sl1.element);
+
+  const sl2 = slider.create('Slider');
+  elements.push(sl2.element);
+
+  const sw1 = switc.create('Switch');
+  elements.push(sw1.element);
+
+  const tf1 = textField.createPasswordField('Password'); ///////////////////
+  elements.push(tf1.element);
+
+  const tf2 = textField.createTextField('Text Field');
+  elements.push(tf2.element);
+
+  const tf3 = textField.createMultilineField('Multiline Field');
+  elements.push(tf3.element);
+
+  const tf4 = textField.createNumberField('Number Field');
+  elements.push(tf4.element);
+
+  /* feedback components */
+  const pr1 = progress.createCircularProgress(); /////////////////////////
+  elements.push(pr1.element);
+
+  const pr2 = progress.createLinearProgress();
+  elements.push(pr2.element);
+
+  const sb1 = snackbar.create('Snackbar message', 'Close!', snackbarOpen, handleSnackbarClose);
+  elements.push(sb1.element);
+
+  /* layout components */
+  const gr1 = grid.create(
     <Grid item xs={12} sm={6}>
-      {paper.element}
+      {pp1.element}
     </Grid>
   );
-
+  elements.push(gr1.element);
+  
   return (
     <Container>
-      {appbar.element}
-      
-      {title.element}
-      
-      {button_snackbar.element}
-
-      {tooltip.element}
-
-      {grid.element}
-
-      {radioGroup.element}
-
-      {chip.element}
-      
-      {list.element}
-
-      {card.element}
-
-      {successAlert.element}
-      {errorAlert.element}
-      {warningAlert.element}
-      {infoAlert.element}
-
-      {autocomplete.element}
-
-      {button.element}
-
-      {checkbox.element}
-
-      {fabButton.element}
-
-      {rating.element}
-
-      {select.element}
-
-      {slider.element}
-
-      {switc.element}
-      
-      {passwordField.element}
-      {textField.element}
-      {multilineField.element}
-      {numberField.element}
-
-      {circularProgress.element}
-      {linearProgress.element}
-
-      {snackbarOpen && snackbar.element}
-
-      {avatar.element}
-
-      {badge.element}
-
-      {divider.element}
-
-      {typography.element}
-    
-      {accordion1.element}
-      {accordion2.element}
-
+      {elements}
     </Container>
-  );
+  )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));

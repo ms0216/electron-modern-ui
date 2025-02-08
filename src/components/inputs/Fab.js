@@ -3,16 +3,14 @@ import { Fab } from "@mui/material";
 import BaseComponent from "../BaseComponent";
 
 class FabComponent extends BaseComponent {
-  createFab(icon, color = "primary", onClick) {
+  create(icon, color = "primary", onClick) {
     const id = this.generateId();
-    return {
-      id,
-      element: (
-        <Fab id={id} color={color} onClick={onClick}>
-          {icon}
-        </Fab>
-      )
-    };
+    const element = (
+      <Fab id={id} color={color} onClick={onClick}>
+        {icon}
+      </Fab>
+    );
+    return { id, element };
   }
 }
 
