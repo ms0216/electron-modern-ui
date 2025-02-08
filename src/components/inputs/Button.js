@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@mui/material";
-import BaseComponent from "./BaseComponent";
+import BaseComponent from "../BaseComponent";
 
 class ButtonComponent extends BaseComponent {
   createButton(label, variant = "contained", color = "primary") {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, FormControlLabel } from "@mui/material";
-import BaseComponent from "./BaseComponent";
+import BaseComponent from "../BaseComponent";
 
 class SwitchComponent extends BaseComponent {
   createSwitch(label) {

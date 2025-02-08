@@ -1,6 +1,6 @@
 import React from "react";
 import { Autocomplete, TextField } from "@mui/material";
-import BaseComponent from "./BaseComponent";
+import BaseComponent from "../BaseComponent";
 
 class AutocompleteComponent extends BaseComponent {
   createAutocomplete(label, options = []) {

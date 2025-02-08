@@ -1,6 +1,6 @@
 import React from "react";
 import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
-import BaseComponent from "./BaseComponent";
+import BaseComponent from "../BaseComponent";
 
 class SelectComponent extends BaseComponent {
   createSelect(label, options = []) {

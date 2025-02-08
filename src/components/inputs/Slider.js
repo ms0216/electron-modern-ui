@@ -1,6 +1,6 @@
 import React from "react";
 import { Slider } from "@mui/material";
-import BaseComponent from "./BaseComponent";
+import BaseComponent from "../BaseComponent";
 
 class SliderComponent extends BaseComponent {
   createSlider(label, min = 0, max = 100, step = 1) {

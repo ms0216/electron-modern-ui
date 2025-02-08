@@ -1,6 +1,6 @@
 import React from 'react';
 import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
-import BaseComponent from './BaseComponent';
+import BaseComponent from '../BaseComponent';
 
 class RadioGroupComponent extends BaseComponent {
   createRadioGroup(label, items = []) {

@@ -3,17 +3,19 @@ import ReactDOM from 'react-dom';
 import { Button, Container, Typography, Grid, Tooltip, IconButton, Box, TextField, Checkbox, FormControlLabel, Switch, Slider, Avatar, Badge, Chip, Divider, CircularProgress, LinearProgress, ToggleButton } from '@mui/material';
 
 import MailIcon from '@mui/icons-material/Mail';
-import TextFieldComponent from './components/TextFieldComponent';
-import AlertComponent from './components/AlertComponent';
-import AutocompleteComponent from './components/AutocompleteComponent';
-import ButtonComponent from './components/ButtonComponent';
-import CheckboxComponent from './components/CheckboxComponent';
-import FabComponent from './components/FabComponent';
-import RadioGroupComponent from './components/RadioGroupComponent';
-import RatingComponent from './components/RatingComponent';
-import SelectComponent from './components/SelectComponent';
-import SliderComponent from './components/SliderComponent';
-import SwitchComponent from './components/SwitchComponent';
+
+import AlertComponent from './components/inputs/Alert';
+import AutocompleteComponent from './components/inputs/Autocomplete';
+import ButtonComponent from './components/inputs/Button';
+import CheckboxComponent from './components/inputs/Checkbox';
+import FabComponent from './components/inputs/Fab';
+import RadioGroupComponent from './components/inputs/RadioGroup';
+import RatingComponent from './components/inputs/Rating';
+import SelectComponent from './components/inputs/Select';
+import SliderComponent from './components/inputs/Slider';
+import SwitchComponent from './components/inputs/Switch';
+import TextFieldComponent from './components/inputs/TextField';
+
 import ProgressComponent from './components/feedback/Progress';
 import SnackbarComponent from './components/feedback/Snackbar';
 import AvatarComponent from './components/data_display/Avatar';

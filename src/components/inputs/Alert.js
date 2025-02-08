@@ -1,6 +1,6 @@
 import React from "react";
 import { Alert, AlertTitle } from "@mui/material";
-import BaseComponent from "./BaseComponent";
+import BaseComponent from "../BaseComponent";
 
 class AlertComponent extends BaseComponent {
   createSuccessAlert(title, message) {

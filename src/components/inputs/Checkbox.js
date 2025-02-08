@@ -1,6 +1,6 @@
 import React from "react";
 import { Checkbox, FormControlLabel } from "@mui/material";
-import BaseComponent from "./BaseComponent";
+import BaseComponent from "../BaseComponent";
 
 class CheckboxComponent extends BaseComponent {
   createCheckbox(label) {

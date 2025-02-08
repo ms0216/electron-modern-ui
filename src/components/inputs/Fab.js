@@ -1,6 +1,6 @@
 import React from "react";
 import { Fab } from "@mui/material";
-import BaseComponent from "./BaseComponent";
+import BaseComponent from "../BaseComponent";
 
 class FabComponent extends BaseComponent {
   createFab(icon, color = "primary", onClick) {

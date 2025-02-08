@@ -1,6 +1,6 @@
 import React from "react";
 import { TextField } from "@mui/material";
-import BaseComponent from "./BaseComponent";
+import BaseComponent from "../BaseComponent";
 
 class TextFieldComponent extends BaseComponent {
   createPasswordField(label) {
