@@ -3,15 +3,15 @@ import { Typography } from "@mui/material";
 import BaseComponent from "../BaseComponent";
 
 class TypographyComponent extends BaseComponent {
-  createTypography(text, variant = "body1", component = "p") {
+  createTypography(text, props = {}) {
     const id = this.generateId();
     return {
-      id,
-      element: (
-        <Typography id={id} variant={variant} component={component}>
-          {text}
-        </Typography>
-      )
+        id,
+        element: (
+            <Typography id={id} {...props}>
+                {text}
+            </Typography>
+        )
     };
   }
 }

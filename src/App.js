@@ -558,7 +558,8 @@ function App() {
 
   const divider = dv.createDivider('fullWidth', 'horizontal');
 
-  const typography = tp.createTypography('Typography', 'h2');
+  const title = tp.createTypography('Electron + React + Material UI', {variant: 'h2', Component: 'h1'});
+  const typography = tp.createTypography('Typography', {variant: 'h2'});
 
 
   return (
@@ -571,9 +572,7 @@ function App() {
         menuItems={menuItems}
       />
       
-      <Typography variant="h2" component="h1" gutterBottom>
-        Electron + React + Material UI
-      </Typography>
+      {title.element}
       
       <Button variant="contained" color="primary" onClick={handleSnackbarOpen}>
         Button: Show Snackbar
