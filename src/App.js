@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Button, Container, Typography, Grid, Tooltip, IconButton, Box, TextField, Checkbox, FormControlLabel, Switch, Slider, Avatar, Badge, Chip, Divider, CircularProgress, LinearProgress, ToggleButton } from '@mui/material';
 
 import MailIcon from '@mui/icons-material/Mail';
-import ListComponent from './components/ListComponent';
 import RadioGroupComponent from './components/RadioGroupComponent';
 import TabsComponent from './components/TabsComponent';
 import TextFieldComponent from './components/TextFieldComponent';
@@ -22,6 +21,7 @@ import SnackbarComponent from './components/feedback/Snackbar';
 import AvatarComponent from './components/data_display/Avatar';
 import BadgeComponent from './components/data_display/Badge';
 import DividerComponent from './components/data_display/Divider';
+import ListComponent from './components/data_display/List';
 import TypographyComponent from './components/data_display/Typography';
 import AccordionComponent from './components/surfaces/Accordion';
 import AppBarComponent from './components/surfaces/AppBar';
@@ -517,6 +517,7 @@ function App() {
   const av = new AvatarComponent();
   const bd = new BadgeComponent();
   const dv = new DividerComponent();
+  const ls = new ListComponent();
   const tp = new TypographyComponent();
 
   const acc = new AccordionComponent();
@@ -562,6 +563,8 @@ function App() {
   const badge = bd.createBadge(4, 'primary', <MailIcon />);
 
   const divider = dv.createDivider('fullWidth', 'horizontal');
+
+  const list = ls.createList(listItems);
 
   const title = tp.createTypography('Electron + React + Material UI', {variant: 'h2', Component: 'h1'});
   const typography = tp.createTypography('Typography', {variant: 'h2'});
@@ -624,9 +627,7 @@ function App() {
       
       <Chip label="Chip Filled" />
       
-      <ListComponent
-        items={listItems}
-      />
+      {list.element}
 
       {card.element}
 
