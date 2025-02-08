@@ -3,12 +3,10 @@ import ReactDOM from 'react-dom';
 import { Button, Container, Typography, Grid, Tooltip, IconButton, Box, TextField, Checkbox, FormControlLabel, Switch, Slider, Avatar, Badge, Chip, Divider, CircularProgress, LinearProgress, ToggleButton } from '@mui/material';
 
 import MailIcon from '@mui/icons-material/Mail';
-import AppBarComponent from './components/AppBarComponent';
 import PaperComponent from './components/PaperComponent';
 import ListComponent from './components/ListComponent';
 import CardComponent from './components/CardComponent';
 import RadioGroupComponent from './components/RadioGroupComponent';
-import AccordionComponent2 from './components/AccordionComponent';
 import TabsComponent from './components/TabsComponent';
 import TextFieldComponent from './components/TextFieldComponent';
 import AlertComponent from './components/AlertComponent';
@@ -28,6 +26,7 @@ import BadgeComponent from './components/data_display/Badge';
 import DividerComponent from './components/data_display/Divider';
 import TypographyComponent from './components/data_display/Typography';
 import AccordionComponent from './components/surfaces/Accordion';
+import AppBarComponent from './components/surfaces/AppBar';
 
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -521,6 +520,7 @@ function App() {
   const tp = new TypographyComponent();
 
   const acc = new AccordionComponent();
+  const app = new AppBarComponent();
 
   const autocomplete = ac.createAutocomplete('Country', countries);
 
@@ -573,16 +573,18 @@ function App() {
     tp.createTypography('Accordion 2').element,
     tp.createTypography('Content for Accordion 2.').element
   );
+
+  const appbar = app.createAppBar(
+    tp.createTypography('App Bar Component', {variant: 'h6', style: { flexGrow: 1 }}).element,
+    menuItems,
+    anchorEl,
+    handleMenu,
+    handleClose
+  );
   
   return (
     <Container>
-      <AppBarComponent
-        anchorEl={anchorEl}
-        handleMenu={handleMenu}
-        handleClose={handleClose}
-        title="App Bar Component"
-        menuItems={menuItems}
-      />
+      {appbar.element}
       
       {title.element}
       
