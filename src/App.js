@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Container, Typography, Grid, Tooltip, IconButton, Box, TextField, Checkbox, FormControlLabel, Switch, Slider, Avatar, Badge, Chip, Divider, CircularProgress, LinearProgress, ToggleButton } from '@mui/material';
+import { Container, Grid, IconButton } from '@mui/material';
 import MailIcon from '@mui/icons-material/Mail';
 import { countries } from './constants';
 
@@ -37,7 +37,6 @@ import GridComponent from './components/layout/gridv2';
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
-  const [tabValue, setTabValue] = React.useState(0);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -56,10 +55,6 @@ function App() {
       return;
     }
     setSnackbarOpen(false);
-  };
-
-  const handleTabChange = (event, newValue) => {
-    setTabValue(newValue);
   };
 
   const menuItems = ['Profile', 'My account', 'Logout'];
