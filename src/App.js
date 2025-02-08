@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Button, Container, Typography, Grid, Tooltip, IconButton, Box, TextField, Checkbox, FormControlLabel, Switch, Slider, Avatar, Badge, Chip, Divider, CircularProgress, LinearProgress, ToggleButton } from '@mui/material';
 
 import MailIcon from '@mui/icons-material/Mail';
-import PaperComponent from './components/PaperComponent';
 import ListComponent from './components/ListComponent';
 import RadioGroupComponent from './components/RadioGroupComponent';
 import TabsComponent from './components/TabsComponent';
@@ -27,6 +26,7 @@ import TypographyComponent from './components/data_display/Typography';
 import AccordionComponent from './components/surfaces/Accordion';
 import AppBarComponent from './components/surfaces/AppBar';
 import CardComponent from './components/surfaces/Card';
+import PaperComponent from './components/surfaces/Paper';
 
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -522,6 +522,7 @@ function App() {
   const acc = new AccordionComponent();
   const app = new AppBarComponent();
   const ca = new CardComponent();
+  const pp = new PaperComponent();
 
   const autocomplete = ac.createAutocomplete('Country', countries);
 
@@ -589,6 +590,11 @@ function App() {
     tp.createTypography('Card Content', {variant: 'body2'}).element
   );
 
+  const paper = pp.createPaper(
+    tp.createTypography('Paper Title', {variant: 'h5', component: 'div'}).element,
+    tp.createTypography('Paper Content', {variant: 'body2'}).element
+  );
+
   return (
     <Container>
       {appbar.element}
@@ -607,11 +613,7 @@ function App() {
       
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
-          <PaperComponent
-            tabValue={tabValue}
-            handleTabChange={handleTabChange}
-            title="Paper Component 1"
-          />
+          {paper.element}
         </Grid>
       </Grid>
       
