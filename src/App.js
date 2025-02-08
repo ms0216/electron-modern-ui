@@ -4,6 +4,7 @@ import { Container, Grid, IconButton } from '@mui/material';
 import MailIcon from '@mui/icons-material/Mail';
 import { countries } from './constants';
 
+/* Import components */
 import AlertComponent from './components/inputs/Alert';
 import AutocompleteComponent from './components/inputs/Autocomplete';
 import ButtonComponent from './components/inputs/Button';
@@ -15,10 +16,12 @@ import SelectComponent from './components/inputs/Select';
 import SliderComponent from './components/inputs/Slider';
 import SwitchComponent from './components/inputs/Switch';
 import TextFieldComponent from './components/inputs/TextField';
-
+  
+/* feedback components */
 import ProgressComponent from './components/feedback/Progress';
 import SnackbarComponent from './components/feedback/Snackbar';
 
+/* data display components */
 import AvatarComponent from './components/data_display/Avatar';
 import BadgeComponent from './components/data_display/Badge';
 import ChipComponent from './components/data_display/Chip';
@@ -27,11 +30,13 @@ import ListComponent from './components/data_display/List';
 import TooltipComponent from './components/data_display/Tooltip';
 import TypographyComponent from './components/data_display/Typography';
 
+/* surfaces components */
 import AccordionComponent from './components/surfaces/Accordion';
 import AppBarComponent from './components/surfaces/AppBar';
 import CardComponent from './components/surfaces/Card';
 import PaperComponent from './components/surfaces/Paper';
 
+/* layout components */
 import GridComponent from './components/layout/gridv2';
 
 
