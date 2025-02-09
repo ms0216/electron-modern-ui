@@ -44,6 +44,10 @@ import PaperComponent from './components/surfaces/Paper';
 
 /* layout components */
 import GridComponent from './components/layout/gridv2';
+import BoxComponent from './components/layout/Box';
+import ContainerComponent from './components/layout/Container';
+import StackComponent from './components/layout/Stack';
+import ImageListComponent from './components/layout/ImageList';
 
 /* navigation components */
 import BottomNavigationComponent from './components/navigation/BottomNavigation';
@@ -153,6 +157,10 @@ function App() {
 
   /* layout components */
   const grid = new GridComponent();
+  const box = new BoxComponent();
+  const container = new ContainerComponent();
+  const stack = new StackComponent();
+  const imageList = new ImageListComponent();
 
   /* navigation components */
   const bottomNavigation = new BottomNavigationComponent();
@@ -335,6 +343,38 @@ function App() {
     </Grid>
   );
   addElement(gr1.element);
+
+  const bx1 = box.create(
+    typography.create('This is a Box').element,
+    { sx: { border: '1px solid black', padding: '16px' } }
+  );
+  addElement(bx1.element);
+
+  const ct1 = container.create(
+    typography.create('This is a Container').element,
+    { maxWidth: 'sm' }
+  );
+  addElement(ct1.element);
+
+  const sta1 = stack.create(
+    [
+      typography.create('Item 1').element,
+      typography.create('Item 2').element,
+      typography.create('Item 3').element
+    ],
+    { spacing: 2, direction: 'row' }
+  );
+  addElement(sta1.element);
+
+  const il1 = imageList.create(
+    [
+      { src: 'https://via.placeholder.com/150', alt: 'Image 1' },
+      { src: 'https://via.placeholder.com/150', alt: 'Image 2' },
+      { src: 'https://via.placeholder.com/150', alt: 'Image 3' }
+    ],
+    { cols: 3 }
+  );
+  addElement(il1.element);
 
   /* navigation components */
   const bn1 = bottomNavigation.create(
