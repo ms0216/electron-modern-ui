@@ -193,7 +193,8 @@ function App() {
   /* surface components */
   const acc1 = accordion.create(
     typography.create('Accordion 1').element,
-    typography.create('Content for Accordion 1.').element
+    typography.create('Content for Accordion 1.').element,
+    { defaultExpanded: true }
   );
   addElement(acc1.element);
 
