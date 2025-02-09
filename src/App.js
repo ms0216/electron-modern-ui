@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Container, Grid, IconButton, ToggleButtonGroup } from '@mui/material';
+import { Container, Grid, IconButton, ToggleButtonGroup, Switch } from '@mui/material';
 import MailIcon from '@mui/icons-material/Mail';
 import { countries } from './constants';
 
@@ -71,6 +71,7 @@ function App() {
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
   const [dialogOpen, setDialogOpen] = React.useState(true); // ダイアログの開閉状態を管理するステート
   const [backdropOpen, setBackdropOpen] = React.useState(true); // Backdropの開閉状態を管理するステート
+  const [transitionIn, setTransitionIn] = React.useState(true); // Transitionsの開閉状態を管理するステート
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -97,6 +98,10 @@ function App() {
 
   const handleBackdropClose = () => {
     setBackdropOpen(false); // Backdropを閉じる
+  };
+
+  const handleTransitionToggle = () => {
+    setTransitionIn((prev) => !prev); // Transitionsの開閉状態を切り替える
   };
 
   const menuItems = ['Profile', 'My account', 'Logout'];
@@ -480,13 +485,18 @@ function App() {
 
   const tr1 = transitions.create(
     'fade',
-    true,
+    transitionIn,
     typography.create('This is a Fade Transition').element
   );
   addElement(tr1.element);
+
+  const transitionSwitch = (
+    switc.create('Switch', { checked: transitionIn, onChange: handleTransitionToggle }).element
+  );
+  addElement(transitionSwitch);
   
   return (
-    <Container>
+    <Container>``
       {elements}
     </Container>
   )
