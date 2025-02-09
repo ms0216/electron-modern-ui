@@ -22,6 +22,9 @@ import ToggleButtonComponent from './components/inputs/ToggleButton';
 /* feedback components */
 import ProgressComponent from './components/feedback/Progress';
 import SnackbarComponent from './components/feedback/Snackbar';
+import BackdropComponent from './components/feedback/Backdrop';
+import DialogComponent from './components/feedback/Dialog';
+import SkeletonComponent from './components/feedback/Skeleton';
 
 /* data display components */
 import AvatarComponent from './components/data_display/Avatar';
@@ -46,6 +49,8 @@ import GridComponent from './components/layout/gridv2';
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
+  const [dialogOpen, setDialogOpen] = React.useState(true); // ダイアログの開閉状態を管理するステート
+  const [backdropOpen, setBackdropOpen] = React.useState(true); // Backdropの開閉状態を管理するステート
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -64,6 +69,14 @@ function App() {
       return;
     }
     setSnackbarOpen(false);
+  };
+
+  const handleDialogClose = () => {
+    setDialogOpen(false); // ダイアログを閉じる
+  };
+
+  const handleBackdropClose = () => {
+    setBackdropOpen(false); // Backdropを閉じる
   };
 
   const menuItems = ['Profile', 'My account', 'Logout'];
@@ -108,6 +121,9 @@ function App() {
   /* feedback components */
   const progress = new ProgressComponent();
   const snackbar = new SnackbarComponent();
+  const backdrop = new BackdropComponent();
+  const dialog = new DialogComponent();
+  const skeleton = new SkeletonComponent();
 
   /* data display components */
   const avatar = new AvatarComponent();
@@ -164,8 +180,8 @@ function App() {
   const av1 = avatar.create('Remy Sharp', '/static/images/avatar/1.jpg');
   addElement(av1.element);
 
-  const bd1 = badge.create(4, 'primary', <MailIcon />);
-  addElement(bd1.element);
+  const badge1 = badge.create(4, 'primary', <MailIcon />);
+  addElement(badge1.element);
 
   const ch1 = chip.create('Chip Filled');
   addElement(ch1.element);
@@ -196,7 +212,7 @@ function App() {
   addElement(tab1.element);
 
   /* inputs components */
-  const al1 = alert.createSuccessAlert('Success', 'This is a success alert.'); ///////////////////
+  const al1 = alert.createSuccessAlert('Success', 'This is a success alert.');
   addElement(al1.element);
 
   const al2 = alert.createErrorAlert('Error', 'This is an error alert.');
@@ -235,7 +251,7 @@ function App() {
   const sw1 = switc.create('Switch');
   addElement(sw1.element);
 
-  const tf1 = textField.createPasswordField('Password'); ///////////////////
+  const tf1 = textField.createPasswordField('Password');
   addElement(tf1.element);
 
   const tf2 = textField.createTextField('Text Field');
@@ -267,7 +283,7 @@ function App() {
   );
 
   /* feedback components */
-  const pr1 = progress.createCircularProgress(); ///////////////////
+  const pr1 = progress.createCircularProgress();
   addElement(pr1.element);
 
   const pr2 = progress.createLinearProgress();
@@ -275,6 +291,21 @@ function App() {
 
   const sb1 = snackbar.create('Snackbar message', 'Close!', snackbarOpen, handleSnackbarClose);
   addElement(sb1.element);
+
+  const bd1 = backdrop.create(backdropOpen, handleBackdropClose);
+  addElement(bd1.element);
+
+  const dlg1 = dialog.create(
+    dialogOpen,
+    handleDialogClose,
+    "Dialog Title",
+    "This is the dialog content.",
+    [{ label: "Close", onClick: handleDialogClose }]
+  );
+  addElement(dlg1.element);
+
+  const sk1 = skeleton.create("rectangular", 210, 118);
+  addElement(sk1.element);
 
   /* layout components */
   const gr1 = grid.create(
