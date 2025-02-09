@@ -60,6 +60,12 @@ import SpeedDialComponent from './components/navigation/SpeedDial';
 import StepperComponent from './components/navigation/Stepper';
 import TabsComponent from './components/navigation/Tabs';
 
+/* utils components */
+import ModalComponent from './components/utils/Modal';
+import PopoverComponent from './components/utils/Popover';
+import PopperComponent from './components/utils/Popper';
+import TransitionsComponent from './components/utils/Transitions';
+
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
@@ -172,6 +178,12 @@ function App() {
   const speedDial = new SpeedDialComponent();
   const stepper = new StepperComponent();
   const tabsComponent = new TabsComponent();
+
+  /* utils components */
+  const modal = new ModalComponent();
+  const popover = new PopoverComponent();
+  const popper = new PopperComponent();
+  const transitions = new TransitionsComponent();
 
   /* surface components */
   const acc1 = accordion.create(
@@ -438,6 +450,40 @@ function App() {
     (event, newValue) => console.log("Tab changed", newValue)
   );
   addElement(tabs1.element);
+
+  /*
+  const md1 = modal.create(
+    true,
+    () => console.log("Modal closed"),
+    typography.create('This is the content of the modal.').element,
+    { sx: { width: 400, bgcolor: 'background.paper', p: 4 } }
+  );
+  addElement(md1.element);
+  */
+
+  const pv1 = popover.create(
+    anchorEl,
+    Boolean(anchorEl),
+    handleClose,
+    typography.create('This is a Popover').element,
+    { anchorOrigin: { vertical: 'bottom', horizontal: 'center' } }
+  );
+  addElement(pv1.element);
+
+  const pop1 = popper.create(
+    anchorEl,
+    Boolean(anchorEl),
+    typography.create('This is a Popper').element,
+    { placement: 'bottom' }
+  );
+  addElement(pop1.element);
+
+  const tr1 = transitions.create(
+    'fade',
+    true,
+    typography.create('This is a Fade Transition').element
+  );
+  addElement(tr1.element);
   
   return (
     <Container>
