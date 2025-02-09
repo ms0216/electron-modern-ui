@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Container, Grid, IconButton, ToggleButtonGroup, Switch } from '@mui/material';
+import { Container, Grid, IconButton, ToggleButtonGroup, Switch, Button } from '@mui/material';
 import MailIcon from '@mui/icons-material/Mail';
 import { countries } from './constants';
 
@@ -72,6 +72,7 @@ function App() {
   const [dialogOpen, setDialogOpen] = React.useState(true); // ダイアログの開閉状態を管理するステート
   const [backdropOpen, setBackdropOpen] = React.useState(true); // Backdropの開閉状態を管理するステート
   const [transitionIn, setTransitionIn] = React.useState(true); // Transitionsの開閉状態を管理するステート
+  const [modalOpen, setModalOpen] = React.useState(false); // モーダルの開閉状態を管理するステート
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -102,6 +103,14 @@ function App() {
 
   const handleTransitionToggle = () => {
     setTransitionIn((prev) => !prev); // Transitionsの開閉状態を切り替える
+  };
+
+  const handleModalOpen = () => {
+    setModalOpen(true); // モーダルを開く
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false); // モーダルを閉じる
   };
 
   const menuItems = ['Profile', 'My account', 'Logout'];
@@ -457,15 +466,16 @@ function App() {
   );
   addElement(tabs1.element);
 
-  /*
   const md1 = modal.create(
-    true,
-    () => console.log("Modal closed"),
+    modalOpen,
+    handleModalClose,
     typography.create('This is the content of the modal.').element,
     { sx: { width: 400, bgcolor: 'background.paper', p: 4 } }
   );
   addElement(md1.element);
-  */
+
+  const modalButton = button.create('Open Modal', handleModalOpen, { variant: 'contained', color: 'primary' });
+  addElement(modalButton.element);
 
   const pv1 = popover.create(
     anchorEl,
