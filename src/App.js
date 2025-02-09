@@ -5,7 +5,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import { countries } from './constants';
 
 /* Import components */
-import AlertComponent from './components/inputs/Alert';
+import AlertComponent from './components/feedback/Alert';
 import AutocompleteComponent from './components/inputs/Autocomplete';
 import ButtonComponent from './components/inputs/Button';
 import CheckboxComponent from './components/inputs/Checkbox';
