@@ -45,6 +45,16 @@ import PaperComponent from './components/surfaces/Paper';
 /* layout components */
 import GridComponent from './components/layout/gridv2';
 
+/* navigation components */
+import BottomNavigationComponent from './components/navigation/BottomNavigation';
+import BreadcrumbsComponent from './components/navigation/Breadcrumbs';
+import DrawerComponent from './components/navigation/Drawer';
+import LinkComponent from './components/navigation/Link';
+import MenuComponent from './components/navigation/Menu';
+import PaginationComponent from './components/navigation/Pagination';
+import SpeedDialComponent from './components/navigation/SpeedDial';
+import StepperComponent from './components/navigation/Stepper';
+import TabsComponent from './components/navigation/Tabs';
 
 function App() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -144,6 +154,17 @@ function App() {
   /* layout components */
   const grid = new GridComponent();
 
+  /* navigation components */
+  const bottomNavigation = new BottomNavigationComponent();
+  const breadcrumbs = new BreadcrumbsComponent();
+  const drawer = new DrawerComponent();
+  const link = new LinkComponent();
+  const menu = new MenuComponent();
+  const pagination = new PaginationComponent();
+  const speedDial = new SpeedDialComponent();
+  const stepper = new StepperComponent();
+  const tabsComponent = new TabsComponent();
+
   /* surface components */
   const acc1 = accordion.create(
     typography.create('Accordion 1').element,
@@ -212,7 +233,7 @@ function App() {
   addElement(tab1.element);
 
   /* inputs components */
-  const al1 = alert.createSuccessAlert('Success', 'This is a success alert.');
+  const al1 = alert.createSuccessAlert('Success', 'This is a success alert.'); ///////////////////
   addElement(al1.element);
 
   const al2 = alert.createErrorAlert('Error', 'This is an error alert.');
@@ -251,7 +272,7 @@ function App() {
   const sw1 = switc.create('Switch');
   addElement(sw1.element);
 
-  const tf1 = textField.createPasswordField('Password');
+  const tf1 = textField.createPasswordField('Password'); ///////////////////
   addElement(tf1.element);
 
   const tf2 = textField.createTextField('Text Field');
@@ -283,7 +304,7 @@ function App() {
   );
 
   /* feedback components */
-  const pr1 = progress.createCircularProgress();
+  const pr1 = progress.createCircularProgress(); ///////////////////
   addElement(pr1.element);
 
   const pr2 = progress.createLinearProgress();
@@ -294,7 +315,7 @@ function App() {
 
   const bd1 = backdrop.create(backdropOpen, handleBackdropClose);
   addElement(bd1.element);
-
+  
   const dlg1 = dialog.create(
     dialogOpen,
     handleDialogClose,
@@ -303,7 +324,7 @@ function App() {
     [{ label: "Close", onClick: handleDialogClose }]
   );
   addElement(dlg1.element);
-
+  
   const sk1 = skeleton.create("rectangular", 210, 118);
   addElement(sk1.element);
 
@@ -314,6 +335,69 @@ function App() {
     </Grid>
   );
   addElement(gr1.element);
+
+  /* navigation components */
+  const bn1 = bottomNavigation.create(
+    [
+      { label: "Recents", icon: <MailIcon /> },
+      { label: "Favorites", icon: <MailIcon /> },
+      { label: "Nearby", icon: <MailIcon /> }
+    ],
+    0,
+    (event, newValue) => console.log("Bottom Navigation changed", newValue)
+  );
+  addElement(bn1.element);
+
+  const bc1 = breadcrumbs.create(
+    [{ label: "Home", href: "#" }, { label: "Catalog", href: "#" }, { label: "Accessories", href: "#" }],
+    ">"
+  );
+  addElement(bc1.element);
+/*
+  const dr1 = drawer.create(
+    true,
+    () => console.log("Drawer closed"),
+    [
+      { label: "Home", onClick: () => console.log("Home clicked") },
+      { label: "About", onClick: () => console.log("About clicked") },
+      { label: "Contact", onClick: () => console.log("Contact clicked") }
+    ]
+  );
+  addElement(dr1.element);
+*/
+  const ln1 = link.create("https://www.google.com", "Google");
+  addElement(ln1.element);
+
+  const mn1 = menu.create(
+    anchorEl,
+    Boolean(anchorEl),
+    handleClose,
+    [
+      { label: "Home", onClick: () => console.log("Home clicked") },
+      { label: "About", onClick: () => console.log("About clicked") },
+      { label: "Contact", onClick: () => console.log("Contact clicked") }
+    ]
+  );
+  addElement(mn1.element);
+
+  const pg1 = pagination.create(1, 10, 100, (event, page) => console.log("Page changed", page));
+  addElement(pg1.element);
+
+  const sd1 = speedDial.create([
+    { icon: <MailIcon />, tooltipTitle: "Mail", onClick: () => console.log("Mail clicked") },
+    { icon: <MailIcon />, tooltipTitle: "Mail 2", onClick: () => console.log("Mail 2 clicked") }
+  ]);
+  addElement(sd1.element);
+
+  const st1 = stepper.create(["Step 1", "Step 2", "Step 3"], 1);
+  addElement(st1.element);
+
+  const tabs1 = tabsComponent.create(
+    [{ label: "Tab 1" }, { label: "Tab 2" }, { label: "Tab 3" }],
+    0,
+    (event, newValue) => console.log("Tab changed", newValue)
+  );
+  addElement(tabs1.element);
   
   return (
     <Container>
