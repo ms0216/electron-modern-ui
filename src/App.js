@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Container, Grid, IconButton } from '@mui/material';
+import { Container, Grid, IconButton, ToggleButtonGroup } from '@mui/material';
 import MailIcon from '@mui/icons-material/Mail';
 import { countries } from './constants';
 
@@ -16,7 +16,9 @@ import SelectComponent from './components/inputs/Select';
 import SliderComponent from './components/inputs/Slider';
 import SwitchComponent from './components/inputs/Switch';
 import TextFieldComponent from './components/inputs/TextField';
-  
+import ButtonGroupComponent from './components/inputs/ButtonGroup';
+import ToggleButtonComponent from './components/inputs/ToggleButton';
+
 /* feedback components */
 import ProgressComponent from './components/feedback/Progress';
 import SnackbarComponent from './components/feedback/Snackbar';
@@ -100,6 +102,8 @@ function App() {
   const slider = new SliderComponent();
   const switc = new SwitchComponent();
   const textField = new TextFieldComponent();
+  const buttonGroup = new ButtonGroupComponent();
+  const toggleButton = new ToggleButtonComponent();
 
   /* feedback components */
   const progress = new ProgressComponent();
@@ -188,8 +192,8 @@ function App() {
     ["Jane Smith", 30, "UK"],
     ["Jack Johnson", 28, "Canada"]
   ];
-  const tb1 = table.create(tableHeaders, tableRows);
-  addElement(tb1.element);
+  const tab1 = table.create(tableHeaders, tableRows);
+  addElement(tab1.element);
 
   /* inputs components */
   const al1 = alert.createSuccessAlert('Success', 'This is a success alert.'); ///////////////////
@@ -242,6 +246,25 @@ function App() {
 
   const tf4 = textField.createNumberField('Number Field');
   addElement(tf4.element);
+
+  const bg1 = buttonGroup.create([
+    { label: "One", props: { variant: "contained" } },
+    { label: "Two", props: { variant: "contained" } },
+    { label: "Three", props: { variant: "contained" } },
+  ]);
+  addElement(bg1.element);
+
+  const tb1 = toggleButton.create("Toggle Me1", false, (event) => console.log("Toggle Me1", event));
+  const tb2 = toggleButton.create("Toggle Me2", false, (event) => console.log("Toggle Me2", event));
+  const tb3 = toggleButton.create("Toggle Me3", false, (event) => console.log("Toggle Me3", event));
+
+  addElement(
+    <ToggleButtonGroup>
+      {tb1.element}
+      {tb2.element}
+      {tb3.element}
+    </ToggleButtonGroup>
+  );
 
   /* feedback components */
   const pr1 = progress.createCircularProgress(); ///////////////////
